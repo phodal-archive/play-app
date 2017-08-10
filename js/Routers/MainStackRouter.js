@@ -1,15 +1,17 @@
-import React, { Component } from "react";
-import Login from "../components/login/";
-import Home from "../components/home/";
-import BlankPage from "../components/blankPage";
-import HomeDrawerRouter from "./HomeDrawerRouter";
-import { StackNavigator } from "react-navigation";
-import { Header, Left, Button, Icon, Body, Title, Right } from "native-base";
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import { StackNavigator } from 'react-navigation';
+import Home from '../components/home/';
+import BlankPage from '../components/blankPage';
+import HomeDrawerRouter from './HomeDrawerRouter';
+
 HomeDrawerRouter.navigationOptions = ({ navigation }) => ({
-  header: null
+  header: null,
 });
-export default (StackNav = StackNavigator({
-  Login: { screen: Login },
+
+const StackNav = new StackNavigator({
   Home: { screen: Home },
-  BlankPage: { screen: BlankPage }
-}));
+  BlankPage: { screen: BlankPage },
+});
+
+export default (StackNav);

@@ -1,7 +1,8 @@
+/* eslint-disable no-param-reassign */
 import { Platform } from 'react-native';
 import _ from 'lodash';
 import headerTheme from './Header';
-import containerTheme from './Container'
+import containerTheme from './Container';
 import contentTheme from './Content';
 import buttonTheme from './Button';
 import titleTheme from './Title';
@@ -202,11 +203,11 @@ export default (variables = variable) => {
     },
 
     'NativeBase.Tab': {
-     ...tabTheme(variables),
+      ...tabTheme(variables),
     },
 
     'NativeBase.Segment': {
-     ...segmentTheme(variables),
+      ...segmentTheme(variables),
     },
 
     'NativeBase.STabs': {

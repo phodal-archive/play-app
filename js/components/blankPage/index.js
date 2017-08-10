@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+/* eslint-disable react/no-unused-prop-types */
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Container,
   Header,
@@ -10,25 +11,28 @@ import {
   Icon,
   Left,
   Right,
-  Body
-} from "native-base";
+  Body,
+} from 'native-base';
 
-import styles from "./styles";
+import styles from './styles';
 
 class BlankPage extends Component {
   static navigationOptions = {
-    header: null
+    header: null,
   };
+
   static propTypes = {
     name: React.PropTypes.string,
     index: React.PropTypes.number,
     list: React.PropTypes.arrayOf(React.PropTypes.string),
-    openDrawer: React.PropTypes.func
+// eslint-disable-next-line no-undef,react/forbid-prop-types
+    navigation: any,
+    openDrawer: React.PropTypes.func,
   };
 
   render() {
+// eslint-disable-next-line no-unused-vars
     const { props: { name, index, list } } = this;
-    console.log(this.props.navigation, "000000000");
     return (
       <Container style={styles.container}>
         <Header>
@@ -39,7 +43,7 @@ class BlankPage extends Component {
           </Left>
 
           <Body>
-            <Title>{name ? this.props.name : "Blank Page"}</Title>
+            <Title>{name ? this.props.name : 'Blank Page'}</Title>
           </Body>
 
           <Right />
@@ -49,7 +53,7 @@ class BlankPage extends Component {
           <Text>
             {this.props.navigation.state.params.name.item !== undefined
               ? this.props.navigation.state.params.name.item
-              : "Create Something Awesome . . ."}
+              : 'Create Something Awesome . . .'}
           </Text>
         </Content>
       </Container>
@@ -59,14 +63,14 @@ class BlankPage extends Component {
 
 function bindAction(dispatch) {
   return {
-    openDrawer: () => dispatch(openDrawer())
+    openDrawer: () => dispatch(openDrawer()),
   };
 }
 
 const mapStateToProps = state => ({
   name: state.user.name,
   index: state.list.selectedIndex,
-  list: state.list.list
+  list: state.list.list,
 });
 
 export default connect(mapStateToProps, bindAction)(BlankPage);
